@@ -1,7 +1,11 @@
+import { BugReportForm } from '@/components/forms/bug-report-form'
+
 export default function Home() {
   return (
-    <div className='grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-(family-name:--font-geist-sans) sm:p-20'>
-      Home Page
+    <div className='container mx-auto flex w-full'>
+      <div className='mx-auto mt-48 flex sm:min-w-md'>
+        <BugReportForm />
+      </div>
     </div>
   )
 }

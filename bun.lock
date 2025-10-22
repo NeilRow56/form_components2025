@@ -20,6 +20,7 @@
         "@radix-ui/react-slot": "^1.2.3",
         "@radix-ui/react-tabs": "^1.1.13",
         "@radix-ui/react-tooltip": "^1.2.8",
+        "@tanstack/react-form": "^1.23.7",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "cmdk": "^1.1.1",
@@ -33,6 +34,7 @@
         "recharts": "^2.15.4",
         "sonner": "^2.0.7",
         "tailwind-merge": "^3.3.1",
+        "zod": "^4.1.12",
       },
       "devDependencies": {
         "@tailwindcss/postcss": "^4",
@@ -338,6 +340,16 @@
 
     "@tailwindcss/postcss": ["@tailwindcss/postcss@4.1.15", "", { "dependencies": { "@alloc/quick-lru": "^5.2.0", "@tailwindcss/node": "4.1.15", "@tailwindcss/oxide": "4.1.15", "postcss": "^8.4.41", "tailwindcss": "4.1.15" } }, "sha512-IZh8IT76KujRz6d15wZw4eoeViT4TqmzVWNNfpuNCTKiaZUwgr5vtPqO4HjuYDyx3MgGR5qgPt1HMzTeLJyA3g=="],
 
+    "@tanstack/devtools-event-client": ["@tanstack/devtools-event-client@0.3.3", "", {}, "sha512-RfV+OPV/M3CGryYqTue684u10jUt55PEqeBOnOtCe6tAmHI9Iqyc8nHeDhWPEV9715gShuauFVaMc9RiUVNdwg=="],
+
+    "@tanstack/form-core": ["@tanstack/form-core@1.24.3", "", { "dependencies": { "@tanstack/devtools-event-client": "^0.3.2", "@tanstack/store": "^0.7.7" } }, "sha512-e+HzSD49NWr4aIqJWtPPzmi+/phBJAP3nSPN8dvxwmJWqAxuB/cH138EcmCFf3+oA7j3BXvwvTY0I+8UweGPjQ=="],
+
+    "@tanstack/react-form": ["@tanstack/react-form@1.23.7", "", { "dependencies": { "@tanstack/form-core": "1.24.3", "@tanstack/react-store": "^0.7.7", "decode-formdata": "^0.9.0", "devalue": "^5.3.2" }, "peerDependencies": { "@tanstack/react-start": "^1.130.10", "react": "^17.0.0 || ^18.0.0 || ^19.0.0" }, "optionalPeers": ["@tanstack/react-start"] }, "sha512-p/j9Gi2+s135sOjj48RjM+6xZQr1FVpliQlETLYBEGmmmxWHgYYs2b62mTDSnuv7AqtuZhpQ+t0CRFVfbQLsFA=="],
+
+    "@tanstack/react-store": ["@tanstack/react-store@0.7.7", "", { "dependencies": { "@tanstack/store": "0.7.7", "use-sync-external-store": "^1.5.0" }, "peerDependencies": { "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0" } }, "sha512-qqT0ufegFRDGSof9D/VqaZgjNgp4tRPHZIJq2+QIHkMUtHjaJ0lYrrXjeIUJvjnTbgPfSD1XgOMEt0lmANn6Zg=="],
+
+    "@tanstack/store": ["@tanstack/store@0.7.7", "", {}, "sha512-xa6pTan1bcaqYDS9BDpSiS63qa6EoDkPN9RsRaxHuDdVDNntzq3xNwR5YKTU/V3SkSyC9T4YVOPh2zRQN0nhIQ=="],
+
     "@tybys/wasm-util": ["@tybys/wasm-util@0.10.1", "", { "dependencies": { "tslib": "^2.4.0" } }, "sha512-9tTaPJLSiejZKx+Bmog4uSubteqTvFrVrURwkmHixBo0G4seD0zUxp98E1DzUBJxLQ3NPwXrGKDiVjwx/DpPsg=="],
 
     "@types/d3-array": ["@types/d3-array@3.2.2", "", {}, "sha512-hOLWVbm7uRza0BYXpIIW5pxfrKe0W+D5lrFiAEYR+pb6w3N2SwSMaJbXdUfSEv+dT4MfHBLtn5js0LAWaO6otw=="],
@@ -546,6 +558,8 @@
 
     "decimal.js-light": ["decimal.js-light@2.5.1", "", {}, "sha512-qIMFpTMZmny+MMIitAB6D7iVPEorVw6YQRWkvarTkT4tBeSLLiHzcwj6q0MmYSFCiVpiqPJTJEYIrpcPzVEIvg=="],
 
+    "decode-formdata": ["decode-formdata@0.9.0", "", {}, "sha512-q5uwOjR3Um5YD+ZWPOF/1sGHVW9A5rCrRwITQChRXlmPkxDFBqCm4jNTIVdGHNH9OnR+V9MoZVgRhsFb+ARbUw=="],
+
     "deep-is": ["deep-is@0.1.4", "", {}, "sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ=="],
 
     "define-data-property": ["define-data-property@1.1.4", "", { "dependencies": { "es-define-property": "^1.0.0", "es-errors": "^1.3.0", "gopd": "^1.0.1" } }, "sha512-rBMvIzlpA8v6E+SJZoo++HAYqsLrkg7MSfIinMPFhmkorw7X+dOXVJQs+QT69zGkzMyfDnIMN2Wid1+NbL3T+A=="],
@@ -555,6 +569,8 @@
     "detect-libc": ["detect-libc@2.1.2", "", {}, "sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ=="],
 
     "detect-node-es": ["detect-node-es@1.1.0", "", {}, "sha512-ypdmJU/TbBby2Dxibuv7ZLW3Bs1QEmM7nHjEANfohJLvE0XVujisn1qPJcZxg+qDucsr+bP6fLD1rPS3AhJ7EQ=="],
+
+    "devalue": ["devalue@5.4.2", "", {}, "sha512-MwPZTKEPK2k8Qgfmqrd48ZKVvzSQjgW0lXLxiIBA8dQjtf/6mw6pggHNLcyDKyf+fI6eXxlQwPsfaCMTU5U+Bw=="],
 
     "doctrine": ["doctrine@2.1.0", "", { "dependencies": { "esutils": "^2.0.2" } }, "sha512-35mSku4ZXK0vfCuHEDAwt55dg2jNajHZ1odvF+8SSr82EsZY4QmXfuWso8oEd8zRhVObSN18aM0CjSdoBX7zIw=="],
 
