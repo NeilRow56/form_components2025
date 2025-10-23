@@ -32,6 +32,7 @@ import {
   InputGroupInput
 } from '@/components/ui/input-group'
 import { Input } from '../ui/input'
+import { useAppForm } from '../form-components/hooks'
 
 const formSchema = z.object({
   name: z
@@ -41,7 +42,7 @@ const formSchema = z.object({
 })
 
 export function MutipleFieldsArrayForm() {
-  const form = useForm({
+  const form = useAppForm({
     defaultValues: {
       name: ''
     },
@@ -81,7 +82,7 @@ export function MutipleFieldsArrayForm() {
           }}
         >
           <FieldGroup>
-            <form.Field
+            {/* <form.Field
               name='name'
               children={field => {
                 const isInvalid =
@@ -107,7 +108,10 @@ export function MutipleFieldsArrayForm() {
                   </Field>
                 )
               }}
-            />
+            /> */}
+            <form.AppField name='name'>
+              {field => <field.Input label='Name' />}
+            </form.AppField>
           </FieldGroup>{' '}
         </form>
       </CardContent>
