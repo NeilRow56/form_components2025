@@ -34,20 +34,39 @@ import {
 import { Input } from '../ui/input'
 import { useAppForm } from '../form-components/hooks'
 
-const formSchema = z.object({
-  name: z
-    .string()
-    .min(1, 'is required.')
-    .max(32, 'Name must be at most 32 characters.')
-})
+const registerSchema = z
+  .object({
+    name: z.string().min(3, 'Name must be at least 3 characters'),
+    email: z.email('Please enter a valid email address!'),
+    // age: z.number().int(),
+
+    password: z.string().min(6, 'Password must be at least 6 characters'),
+    confirmPassword: z.string().min(6, {
+      message: 'Passwords do not match'
+    })
+  })
+  .refine(data => data.password === data.confirmPassword, {
+    message: 'Passwords do not match',
+    path: ['confirmPassword'],
+
+    // run if password & confirmPassword are valid
+    when(payload) {
+      return registerSchema
+        .pick({ password: true, confirmPassword: true })
+        .safeParse(payload.value).success
+    }
+  })
 
 export function MutipleFieldsArrayForm() {
   const form = useAppForm({
     defaultValues: {
-      name: ''
+      name: '',
+      email: '',
+      password: '',
+      confirmPassword: ''
     },
     validators: {
-      onBlur: formSchema
+      onBlur: registerSchema
     },
     onSubmit: async ({ value }) => {
       toast('You submitted the following values:', {
@@ -111,6 +130,15 @@ export function MutipleFieldsArrayForm() {
             /> */}
             <form.AppField name='name'>
               {field => <field.Input label='Name' />}
+            </form.AppField>
+            <form.AppField name='email'>
+              {field => <field.Input label='Email' />}
+            </form.AppField>
+            <form.AppField name='password'>
+              {field => <field.PasswordInput label='Password' />}
+            </form.AppField>
+            <form.AppField name='confirmPassword'>
+              {field => <field.PasswordInput label='Confirm Password' />}
             </form.AppField>
           </FieldGroup>{' '}
         </form>

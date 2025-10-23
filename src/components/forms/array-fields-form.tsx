@@ -35,7 +35,7 @@ const formSchema = z.object({
   emails: z
     .array(
       z.object({
-        address: z.string().email('Enter a valid email address.')
+        address: z.email('Enter a valid email address.')
       })
     )
     .min(1, 'Add at least one email address.')
