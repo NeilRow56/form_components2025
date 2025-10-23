@@ -13,6 +13,7 @@ const { useAppForm } = createFormHook({
   fieldComponents: {
     Input: FormInput,
     PasswordInput: FormPasswordInput,
+
     Textarea: FormTextarea,
     Select: FormSelect,
     Checkbox: FormCheckbox,

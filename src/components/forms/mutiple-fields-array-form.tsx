@@ -39,7 +39,7 @@ const registerSchema = z
     name: z.string().min(3, 'Name must be at least 3 characters'),
     email: z.email('Please enter a valid email address!'),
     // age: z.number().int(),
-
+    age: z.string().min(1, 'Please enter age'),
     password: z.string().min(6, 'Password must be at least 6 characters'),
     confirmPassword: z.string().min(6, {
       message: 'Passwords do not match'
@@ -62,11 +62,12 @@ export function MutipleFieldsArrayForm() {
     defaultValues: {
       name: '',
       email: '',
+      age: '',
       password: '',
       confirmPassword: ''
     },
     validators: {
-      onBlur: registerSchema
+      onSubmit: registerSchema
     },
     onSubmit: async ({ value }) => {
       toast('You submitted the following values:', {
@@ -133,6 +134,9 @@ export function MutipleFieldsArrayForm() {
             </form.AppField>
             <form.AppField name='email'>
               {field => <field.Input label='Email' />}
+            </form.AppField>
+            <form.AppField name='age'>
+              {field => <field.Input label='Age' />}
             </form.AppField>
             <form.AppField name='password'>
               {field => <field.PasswordInput label='Password' />}

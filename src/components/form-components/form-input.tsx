@@ -1,3 +1,4 @@
+import { FieldError } from '../ui/field'
 import { Input } from '../ui/input'
 import { FormBase, FormControlProps } from './form-base'
 
@@ -5,7 +6,7 @@ import { useFieldContext } from './hooks'
 
 export function FormInput(props: FormControlProps) {
   const field = useFieldContext<string>()
-  const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
+  // const isInvalid = field.state.meta.isTouched && !field.state.meta.isValid
 
   return (
     <FormBase {...props}>
@@ -15,7 +16,7 @@ export function FormInput(props: FormControlProps) {
         value={field.state.value}
         onBlur={field.handleBlur}
         onChange={e => field.handleChange(e.target.value)}
-        aria-invalid={isInvalid}
+        // aria-invalid={isInvalid}
       />
     </FormBase>
   )
